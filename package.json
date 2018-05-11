@@ -1,0 +1,18 @@
+{
+  "name": "fcc-request-header-parser-microservice",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mongosmash1/request-header-parser-microservice.git"
+  }
+}
