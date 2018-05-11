@@ -23,7 +23,7 @@ app.route('/api/whoami/')
     let softwareRelease = os.release();
     let softwarePlatform = os.platform();
     let softwareArch = os.arch()
-    let software = softwareType & ' ' & softwarePlatform & ';' & softwarePlatform & ';' & softwareArch;
+    let software = softwareType + ' ' + softwarePlatform + ';' + softwarePlatform + ';' + softwareArch;
     
     res.json({ ipaddress: ipAddress, language: language[0], software: software });
   })
