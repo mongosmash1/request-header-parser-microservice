@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const os = require('os');
 const app = express();
 const port = process.env.PORT;
 
@@ -16,16 +15,14 @@ app.route('/')
 // timestamp microservice
 app.route('/api/whoami/')
   .get(function(req, res) {
-    app.set('trust proxy', true);
-    let ipAddress = req.ip;
-    let language = req.headers['accept-language'].split(',');
-    let softwareType = os.type();
-    let softwareRelease = os.release();
-    let softwarePlatform = os.platform();
-    let softwareArch = os.arch()
-    let software = softwareType + ' ' + softwarePlatform + ';' + softwarePlatform + ';' + softwareArch;
-    
-    res.json({ ipaddress: ipAddress, language: language[0], software: software });
+    // left most IP is remote IP prior to the Glitch proxy
+    let ipAddress = req.headers['x-forwarded-for'].split(',')[0];
+    // left most languange is preferred language
+    let language = req.headers['accept-language'].split(',')[0];
+    // splits user-agent header on ( and ) and pulls OS from resulting array
+    let operatingSystem = req.headers['user-agent'].split(/[\(\)]/)[1];
+
+    res.json({ ipaddress: ipAddress, language: language, software: operatingSystem });
   })
 
 // respond not found for all invalid routes
