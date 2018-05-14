@@ -13,4 +13,4 @@ Here are the specific user stories you should implement for this project:
 <code>https://ms1-ts-micro.glitch.me/api/whoami/</code><br>
 
 <b>Example output:</b><br>
-<code>{ "ipaddress":"12.231.183.198", "language":"en-US", "software":"Windows NT 10.0;Win64;x64" }</code>
+<code>{ "ipaddress":"12.231.183.198", "language":"en-US", "software":"Windows NT 10.0; Win64; x64" }</code>
